@@ -1,0 +1,74 @@
+.container{
+    position: relative;
+    width: 100%;
+    top: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.container .form{
+    position: relative;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius: 0.2rem;
+    margin-bottom: 10px;
+}
+.container h1{
+    position: relative;
+    text-shadow: 1px 1px 2px rgb(190, 188, 188), 0 0 1em rgb(150, 147, 147), 0 0 0.2em rgb(150, 147, 147);
+}
+
+.termine{
+    font-weight: bold;
+    background-color: rgb(152, 204, 152);
+}
+.nonTermine{
+    background-color: rgb(233, 180, 180);
+}
+.container ul{
+    position: relative;
+}
+.container ul li{
+    position: relative;
+    padding: 10px 10px 10px 10px;
+    margin: 10px 10px 10px 10px;
+    width: 100%;
+    border-radius: 0.5rem;
+}
+.container ul li button,
+.container button{
+    position: relative;
+    margin-left: 20px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 0.2rem;
+    height: 20px;
+    cursor: pointer;
+}
+
+.container .form  input{
+    position: relative;
+    width: 50%;
+    height: 30px;
+    border: black 2px solid;
+    padding-left: 5px;
+    border-radius: 0.2rem;
+}
+.container .form  button{
+    position: relative;
+    margin-left: 20px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 0.2rem;
+    height: 20px;
+    cursor: pointer;
+    width: 100px;
+    height: 30px;
+}
