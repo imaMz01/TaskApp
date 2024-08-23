@@ -1,7 +1,9 @@
 <div class="container">
   <div class="form">
-    <input type="text" placeholder="La description du tâche ..." [(ngModel)]="description">
-    <button (click)="ajouter()">Ajouter</button>
+    <form (ngSubmit)="ajouter()">
+      <input type="text" placeholder="La description du tâche ..." [(ngModel)]="description" name="description">
+      <button>Ajouter</button>
+    </form>
   </div>
   <h1>List of tasks</h1>
   <ul>
