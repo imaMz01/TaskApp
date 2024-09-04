@@ -2,5 +2,6 @@ export interface Task{
     id:number,
     description:string,
     completed:boolean,
-    dateAjout:Date
+    dateAjout?:Date
+    dateMdification?:Date
 }

@@ -1,12 +1,38 @@
 <div class="container">
   <div class="form">
-    <form (ngSubmit)="ajouter()">
-      <input type="text" placeholder="La description du tâche ..." [(ngModel)]="description" name="description">
-      <button>Ajouter</button>
+    <form *ngIf="!modifier" (ngSubmit)="ajouter()">
+      <input type="text" placeholder="La description du tâche ..." [(ngModel)]="newTask.description" name="newTask.description" >
+      <button class="btn btn-primary" [disabled]="newTask.description== ''">Ajouter</button>
+    </form>
+    <form *ngIf="modifier" (ngSubmit)="modifie()">
+      <input type="text" placeholder="La description du tâche ..." [(ngModel)]="newTask.description" name="newTask.description" >
+      <button class="btn btn-primary" [disabled]="newTask.description== ''">Modifier</button>
     </form>
   </div>
   <h1>List of tasks</h1>
-  <ul>
-    <li *ngFor="let t of tasks" [ngClass]="t.completed ? 'termine' :'nonTermine'" >Id: {{t.id}} -- Description: {{t.description | uppercase}} -- Date d'ajout: {{t.dateAjout | date:'short'}} <span *ngIf="t.completed">Terminé</span><button *ngIf="!t.completed" (click)="terminer(t)">Terminer</button></li>
-  </ul>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Description</th>
+        <th scope="col">Date d'ajout</th>
+        <th scope="col">Date de modification</th>
+        <th> </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let t of tasks" [ngClass]="t.completed ? 'termine' :'nonTermine'" >
+        <td  scope="row">{{t.id}}</td>
+        <td>{{t.description | uppercase}}</td>
+        <td>{{t.dateAjout | date : 'short'}}</td>
+        <td [ngStyle]="{'text-align':'center'}">{{t.dateMdification!=null ? (t.dateMdification | date : 'short'):'--' }}</td>
+        <!-- <th><span *ngIf="t.completed">Terminée</span><button *ngIf="!t.completed" (click)="terminer(t)">Terminer</button></th> -->
+        <td>
+          <button (click)="terminer(t)" [disabled]="t.completed" [ngClass]="t.completed ? 'btn btn-success':'btn btn-danger'">{{t.completed ? 'Terminée' : 'Terminer'}}</button>
+          <button class="btn btn-warning" (click)="update(t)">Modifier</button>
+          <button class="btn btn-danger" (click)="supprimer(t.id)">Supprimer</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
